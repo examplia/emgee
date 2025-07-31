@@ -129,16 +129,26 @@
 
   <div class="container">
 
-    <!-- General / Plugin / Tips -->
+    <!-- General (two-column) -->
     <section class="panel">
-      <h2>General</h2>
-      <ul>
-        <li>Maps follow a strict format in order for them to be properly loaded in the game.</li>
-        <li>You will <strong>NOT</strong> be able to load your map if this format is not <strong>PERFECTLY</strong> followed.</li>
-        <li>Some folders are not absolutely necessary for your map to load, however it is highly recommended to include every folder in your map, whether it is being used or not.</li>
-        <li>Folders and models can be used interchangeably, so use whichever you prefer when building your map!</li>
-      </ul>
+      <div class="row">
+        <div class="col">
+          <img src="assets/format-general.png" alt="Map folder structure">
+        </div>
+        <div class="col">
+          <h2>General</h2>
+          <ul>
+            <li>Maps follow a strict format in order for them to be properly loaded in the game.</li>
+            <li>You will <strong>NOT</strong> be able to load your map if this format is not <strong>PERFECTLY</strong> followed.</li>
+            <li>Some folders are not absolutely necessary for your map to load, however it is highly recommended to include every folder in your map, whether it is being used or not.</li>
+            <li>Folders and models can be used interchangeably, so use whichever you prefer when building your map!</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
+    <!-- Plugin & Tips -->
+    <section class="panel">
       <h2>Get the TC2 Map Plugin!</h2>
       <ul>
         <li>Expedite the map–making process greatly with special custom-made features!</li>
@@ -221,7 +231,7 @@
       </div>
     </section>
 
-    <!-- Clips (one image) -->
+    <!-- Clips -->
     <section class="panel">
       <div class="row">
         <div class="col">
@@ -238,7 +248,7 @@
       </div>
     </section>
 
-    <!-- Items (one image) -->
+    <!-- Items -->
     <section class="panel">
       <div class="row">
         <div class="col">
@@ -293,7 +303,7 @@
       </div>
     </section>
 
-    <!-- TeamSpecific (one image) -->
+    <!-- TeamSpecific -->
     <section class="panel">
       <div class="row">
         <div class="col">
@@ -312,7 +322,7 @@
       </div>
     </section>
 
-    <!-- Settings (one image) -->
+    <!-- Settings -->
     <section class="panel">
       <div class="row">
         <div class="col">
@@ -329,7 +339,7 @@
       </div>
     </section>
 
-    <!-- GameMode (one image) -->
+    <!-- GameMode -->
     <section class="panel">
       <div class="row">
         <div class="col">
@@ -339,12 +349,12 @@
           <h2>GameMode</h2>
           <ul>
             <li><code>GameMode</code> sets gamemode: <code>"KOTH","AD","3CP","CTF","Arena","None"</code>.</li>
-            <li><strong>KOTH</strong>: adds <code>ActivateIn</code> (seconds until hill capture).</li>
+            <li><strong>KOTH</strong>: adds <code>ActivateIn</code> IntValue.</li>
             <li><strong>AD</strong>: adds <code>GameTimer</code>, <code>FirstCap</code>, <code>SetupTimer</code>.</li>
             <li><strong>3CP</strong>: no extra values.</li>
             <li><strong>CTF</strong>: adds <code>CritsOnCap</code>, <code>MaxTime</code>, <code>PlayTo</code>, <code>TimeOnCap</code>.</li>
             <li><strong>Arena</strong>: adds <code>ActivateIn</code>, <code>PrepTime</code>.</li>
-            <li><strong>None</strong>: only <code>PrepTime</code> (infinite timer; end via VIP command).</li>
+            <li><strong>None</strong>: only <code>PrepTime</code> (infinite timer).</li>
           </ul>
         </div>
       </div>
