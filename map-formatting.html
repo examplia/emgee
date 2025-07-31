@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Map Formatting</title>
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --purple:      #5e3d7a;
+      --light-grey:  #f0f0f0;
+      --white:       #ffffff;
+      --dark:        #333333;
+      --border:      #dddddd;
+      --radius:      8px;
+      --gap:         1rem;
+      --font:        'Poppins', sans-serif;
+      --accent-button: #7f3fbf;         /* purple button */
+      --accent-button-hover: #9338d6;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      background: var(--light-grey);
+      color: var(--dark);
+      line-height: 1.5;
+    }
+    /* Hero */
+    header {
+      position: relative;
+      height: 300px;
+      background:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('assets/format-hero.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 5px solid var(--purple);
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      color: var(--white);
+      font-size: 3rem;
+      font-weight: 400;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
+    .panel {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .panel h2 { 
+      font-size: 1.75rem; 
+      margin-bottom: 1rem; 
+      color: var(--purple);
+    }
+    .panel h3 {
+      font-size: 1.25rem;
+      margin: 1rem 0 0.5rem;
+      color: var(--purple);
+    }
+    .panel p, .panel ul { margin-bottom: 0.75rem; }
+    .panel ul { list-style: disc inside; }
+    .panel ul ul { list-style-type: circle; margin-left: 1rem; }
+    .panel li + li { margin-top: 0.5rem; }
+    code {
+      background: #eee;
+      padding: 0.1em 0.3em;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    /* Two‐column panels */
+    .row {
+      display: flex;
+      gap: var(--gap);
+      flex-wrap: wrap;
+    }
+    .col {
+      flex: 1;
+      min-width: 280px;
+    }
+    .col img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      display: block;
+    }
+
+    /* Plugin button */
+    .button {
+      display: inline-block;
+      padding: 0.6rem 1.8rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--white);
+      background: var(--accent-button);
+      transition: background 0.3s ease;
+      margin-top: 1rem;
+    }
+    .button:hover {
+      background: var(--accent-button-hover);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      .row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Map Formatting</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- General / Plugin / Tips -->
+    <section class="panel">
+      <h2>General</h2>
+      <ul>
+        <li>Maps follow a strict format in order for them to be properly loaded in the game.</li>
+        <li>You will <strong>NOT</strong> be able to load your map if this format is not <strong>PERFECTLY</strong> followed.</li>
+        <li>Some folders are not absolutely necessary for your map to load, however it is highly recommended to include every folder in your map, whether it is being used or not.</li>
+        <li>Folders and models can be used interchangeably, so use whichever you prefer when building your map!</li>
+      </ul>
+
+      <h2>Get the TC2 Map Plugin!</h2>
+      <ul>
+        <li>Expedite the map–making process greatly with special custom-made features!</li>
+        <li>Deploy copies of the test maps and gameplay kits, automate lengthy processes, and validate your map before publishing for a smooth in-game implementation!</li>
+        <li>The resources on this page reference this plugin and assume you have immediate access to it.</li>
+      </ul>
+      <a href="https://create.roblox.com/store/asset/13046258210/TC2-Build-Suite" class="button" target="_blank">
+        Download TC2 Build Suite
+      </a>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Keep a copy of the test map for your map’s gamemode at all times in your workspace! Once you’ve finished geometry (or Ignore, Doors, etc.), simply replace the test-map parts with your own.</li>
+        <li>Play around on the test maps in-game to discover shoot-through walls, open/close doors, walkable surfaces, and anything else interesting!</li>
+        <li>Follow along with the test maps and prop pack when reading this guide!</li>
+        <li><strong>USE THE TEST MAPS!!!</strong></li>
+      </ul>
+    </section>
+
+    <!-- Geometry -->
+    <section class="panel">
+      <div class="row">
+        <div class="col">
+          <img src="assets/format-geometry.png" alt="3cp_yellowvalley with and without Geometry">
+        </div>
+        <div class="col">
+          <h2>Geometry</h2>
+          <ul>
+            <li>The Geometry folder contains <em>most</em> of the physical environment that players see and interact with.</li>
+            <li>Without it, players wouldn’t have a map to even play on!</li>
+            <li>All parts in Geometry block hitscan (bullets & melee).</li>
+            <li>Disabling <code>CanCollide</code> allows projectiles (rockets, grenades, mad milk, etc.) and players to pass through the part.</li>
+            <li>Disabling <code>CanTouch</code> allows stickies to bounce off the part rather than stick to it (if <code>CanCollide</code> is enabled).</li>
+            <li>The only parts <em>not</em> in Geometry are player interactables (Doors, health/ammo kits, KillBricks, etc.) and parts that do not block hitscan.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ignore -->
+    <section class="panel">
+      <div class="row">
+        <div class="col">
+          <img src="assets/format-ignore.png" alt="3cp_yellowvalley with and without Ignore">
+        </div>
+        <div class="col">
+          <h2>Ignore</h2>
+          <ul>
+            <li>The Ignore folder contains CameraSpots, KillBricks, NoBuilds, and Water.</li>
+            <li>Parts in Ignore are completely ignored by hitscan & projectiles (except Annihilator’s projectiles, which still behave like Geometry).</li>
+            <li><code>CameraSpots</code> has spectator camera positions—3 subfolders: General, GRN, RED.</li>
+            <li><code>KillBricks</code> instantly kill players on contact.</li>
+            <li><code>NoBuilds</code> prevent players placing buildings within their bounds.</li>
+            <li><code>Water</code> turns all parts in the folder into Roblox Terrain water.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Doors -->
+    <section class="panel">
+      <div class="row">
+        <div class="col">
+          <img src="assets/format-doors.png" alt="3cp_yellowvalley without Doors">
+        </div>
+        <div class="col">
+          <h2>Doors</h2>
+          <ul>
+            <li>The Doors folder contains parts that open/close based on player interaction and capture stages.</li>
+            <li>Each Door model has two key attributes: <code>Move</code> (studs to move) and <code>MoveTime</code> (seconds).</li>
+            <li>Door parts behave like Geometry (collisions, projectiles, etc.).</li>
+            <li>Each model must have a <code>PrimaryPart</code> set under Pivot, which moves when open/closed.</li>
+            <li>Each <code>Trigger</code> (ActivationType 1–4) defines how the door opens (touch, melee, projectiles, etc.).</li>
+            <li><code>ForceCloseDuring</code> & <code>ForceOpenDuring</code> configs lock/unlock doors per stage (AD, KOTH, 3CP).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clips -->
+    <section class="panel">
+      <div class="row">
+        <div class="col">
+          <img src="assets/format-clips.png" alt="3cp_yellowvalley with clips made visible">
+        </div>
+        <div class="col">
+          <h2>Clips</h2>
+          <ul>
+            <li>The Clips folder contains invisible walls that block players from accessing areas.</li>
+            <li>All parts in Clips are ignored by weapons but still block players.</li>
+            <li><code>CanCollide</code> must be enabled; other part properties are obsolete.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Items -->
+    <section class="panel">
+      <div class="row">
+        <div class="col">
+          <img src="assets/format-items.png" alt="Kits as seen on the test maps">
+        </div>
+        <div class="col">
+          <h2>Items</h2>
+          <ul>
+            <li>The Items folder has resupply cabinets & health/ammo kits.</li>
+            <li>In-game model parts match cabinet & kit sizes—use them!</li>
+            <li>Resupply cabinets named “Resupply” spawn cabinets in-game.</li>
+            <li>Kits come in “Large”, “Medium”, “Small” and types “HP” or “Ammo”.</li>
+            <li>Naming format: <code>SizeType</code> (e.g. “MediumAmmo” or “SmallHP”).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ControlPoints -->
+    <section class="panel">
+      <div class="row">
+        <div class="col">
+          <img src="assets/format-controlpoints.png" alt="Control point in studio and in-game">
+        </div>
+        <div class="col">
+          <h2>ControlPoints</h2>
+          <ul>
+            <li>The ControlPoints folder holds control objects for KOTH, AD, 3CP, Arena.</li>
+            <li>In KOTH & Arena it’s named “ControlPoint” and contains the single hill point.</li>
+            <li>In AD: <code>ControlPoint1</code> first capture, <code>ControlPoint2</code> next.</li>
+            <li>In 3CP: CP1 owned by Red, CP2 neutral, CP3 owned by Green at start.</li>
+            <li>Each folder has <code>PlayerCaptureTime</code>, <code>PointLocation</code>, <code>CaptureZone</code>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Briefcases -->
+    <section class="panel">
+      <div class="row">
+        <div class="col">
+          <img src="assets/format-briefcases.png" alt="Briefcases as seen on the CTF test map">
+        </div>
+        <div class="col">
+          <h2>Briefcases</h2>
+          <ul>
+            <li>The Briefcases folder holds CTF objectives: “Green” and “Red”.</li>
+            <li>Objectives can be any part named accordingly.</li>
+            <li><code>GreenTrigger</code> / <code>RedTrigger</code> fire on touch by opposing carrier.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TeamSpecific -->
+    <section class="panel">
+      <div class="row">
+        <div class="col">
+          <img src="assets/format-teamspecific.png" alt="Barriers and SpawnZones as seen on the test maps">
+        </div>
+        <div class="col">
+          <h2>TeamSpecific</h2>
+          <ul>
+            <li>Contains per-team folders: <code>GRN</code> & <code>RED</code>, each with Spawns, Checkpoints, SpawnZones, Barriers.</li>
+            <li><code>Spawns</code> define respawn points per stage (1–3).</li>
+            <li><code>Checkpoints</code> are optional respawns that kill opposing team on touch.</li>
+            <li><code>SpawnZones</code> allow class/loadout changes—touch opposing zone = instant kill.</li>
+            <li><code>Barriers</code> block only the opposite team.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Settings -->
+    <section class="panel">
+      <div class="row">
+        <div class="col">
+          <img src="assets/format-settings.png" alt="Settings folder format">
+        </div>
+        <div class="col">
+          <h2>Settings</h2>
+          <ul>
+            <li>The Settings folder contains Lighting, Terrain, and General settings.</li>
+            <li>Use the TC2 Map Plugin to automate Lighting & Terrain setup.</li>
+            <li>General toggles (AllowUnanchoredParts, Climbing) should be off unless needed.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GameMode -->
+    <section class="panel">
+      <div class="row">
+        <div class="col">
+          <img src="assets/format-gamemode.png" alt="GameMode format for AD">
+        </div>
+        <div class="col">
+          <h2>GameMode</h2>
+          <ul>
+            <li>The <code>GameMode</code> StringValue sets the map’s gamemode: <code>"KOTH", "AD", "3CP", "CTF", "Arena", "None"</code>.</li>
+            <li><strong>KOTH</strong> adds an IntValue <code>ActivateIn</code> (seconds until hill can be captured).</li>
+            <li><strong>AD</strong> adds <code>GameTimer</code>, <code>FirstCap</code>, <code>SetupTimer</code>.</li>
+            <li><strong>3CP</strong> has no extra values.</li>
+            <li><strong>CTF</strong> adds <code>CritsOnCap</code> (Bool) and <code>MaxTime</code>, <code>PlayTo</code>, <code>TimeOnCap</code>.</li>
+            <li><strong>Arena</strong> adds <code>ActivateIn</code> and <code>PrepTime</code>.</li>
+            <li><strong>None</strong> only has <code>PrepTime</code> (infinite timer, end via VIP command).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
