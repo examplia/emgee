@@ -10,16 +10,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --purple:      #5e3d7a;
-      --light-grey:  #f0f0f0;
-      --white:       #ffffff;
-      --dark:        #333333;
-      --border:      #dddddd;
-      --radius:      8px;
-      --gap:         1rem;
-      --font:        'Poppins', sans-serif;
-      --accent-button: #7f3fbf;
-      --accent-button-hover: #9338d6;
+      --purple:       #5e3d7a;
+      --light-grey:   #f0f0f0;
+      --white:        #ffffff;
+      --dark:         #333333;
+      --border:       #dddddd;
+      --radius:       8px;
+      --gap:          1rem;
+      --font:         'Poppins', sans-serif;
+      --accent-button:#7f3fbf;
+      --accent-button-hover:#9338d6;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -28,8 +28,6 @@
       color: var(--dark);
       line-height: 1.5;
     }
-
-    /* Hero Banner */
     header {
       position: relative;
       height: 300px;
@@ -47,7 +45,6 @@
       font-size: 3rem;
       font-weight: 400;
     }
-
     .container {
       max-width: 900px;
       margin: 0 auto 3rem;
@@ -82,8 +79,6 @@
       border-radius: 4px;
       font-family: monospace;
     }
-
-    /* Two-column layout */
     .row {
       display: flex;
       gap: var(--gap);
@@ -100,8 +95,6 @@
       display: block;
       margin-bottom: var(--gap);
     }
-
-    /* Download button */
     .button {
       display: inline-block;
       padding: 0.6rem 1.8rem;
@@ -114,7 +107,6 @@
       margin-top: 1rem;
     }
     .button:hover { background: var(--accent-button-hover); }
-
     @media (max-width: 600px) {
       .row { flex-direction: column; }
       header h1 { font-size: 2rem; }
@@ -129,7 +121,7 @@
 
   <div class="container">
 
-    <!-- General (two-column) -->
+    <!-- General -->
     <section class="panel">
       <div class="row">
         <div class="col">
@@ -161,14 +153,14 @@
 
       <h2>Tips</h2>
       <ul>
-        <li>Keep a copy of the test map for your map’s gamemode at all times in your workspace! Once you’ve finished the geometry (or Ignore, Doors, etc.), simply replace the test-map parts with your own.</li>
-        <li>Play around on the test maps in-game to discover shoot-through walls, open/close doors, walkable surfaces, and anything else interesting!</li>
-        <li>Follow along with the test maps and prop pack when reading this guide!</li>
+        <li>Keep a copy of the test map for your map’s gamemode at all times in your workspace. Once you’ve finished the geometry (or Ignore, Doors, etc.), simply replace the test-map parts with your own.</li>
+        <li>Play around on the test maps in-game to discover shoot-through walls, open/close doors, walkable surfaces, and anything else interesting.</li>
+        <li>Follow along with the test maps and prop pack when reading this guide.</li>
         <li><strong>USE THE TEST MAPS!!!</strong></li>
       </ul>
     </section>
 
-    <!-- Geometry (two images) -->
+    <!-- Geometry -->
     <section class="panel">
       <div class="row">
         <div class="col">
@@ -189,7 +181,7 @@
       </div>
     </section>
 
-    <!-- Ignore (two images) -->
+    <!-- Ignore -->
     <section class="panel">
       <div class="row">
         <div class="col">
@@ -210,7 +202,7 @@
       </div>
     </section>
 
-    <!-- Doors (two images) -->
+    <!-- Doors (full details) -->
     <section class="panel">
       <div class="row">
         <div class="col">
@@ -220,12 +212,48 @@
         <div class="col">
           <h2>Doors</h2>
           <ul>
-            <li>The Doors folder contains doors that open/close based on triggers and capture stages.</li>
-            <li>Each Door model has <code>Move</code> (studs) and <code>MoveTime</code> (seconds).</li>
-            <li>Door parts behave like Geometry.</li>
-            <li>Models must have a <code>PrimaryPart</code> set under Pivot, which moves.</li>
-            <li>Triggers detect input—ActivationType 1–4 (touch, melee, projectiles, etc.).</li>
-            <li><code>ForceCloseDuring</code> and <code>ForceOpenDuring</code> lock/unlock doors per stage.</li>
+            <li>The Doors folder contains all of the doors that open and close depending on player interaction and which points have been captured.</li>
+            <li>Door models have two core attributes:
+              <ul>
+                <li><strong>Move</strong>: how many studs in each direction the door will move when opened.</li>
+                <li><strong>MoveTime</strong>: how long (in seconds) it takes to move the distance specified by <code>Move</code>.</li>
+              </ul>
+            </li>
+            <li>Door parts behave the same as parts in Geometry (collisions, projectiles, etc.).</li>
+            <li>Each door model must contain:
+              <ul>
+                <li><code>PrimaryPart</code> (under Pivot in model properties)—this is the part that moves when the door opens or closes. It must be Anchored, but need not be visible. <em>See photos on the left for details.</em></li>
+                <li><code>Trigger</code>—detects player input to open the door. A model can have multiple Triggers with different settings, or none (auto–opens/closes by stage). Triggers use a Configuration named “Properties” with these attributes:
+                  <ul>
+                    <li><strong>ActivationType</strong> (1–4):
+                      <ul>
+                        <li><code>1</code> = touch (walking into Trigger). Disables <code>CanCollide</code>, acts like Ignore.</li>
+                        <li><code>2</code> = melee. Enables <code>CanCollide</code>, acts like Geometry.</li>
+                        <li><code>3</code> = melee, bullets, projectiles. Enables <code>CanCollide</code>, acts like Geometry.</li>
+                        <li><code>4</code> = other behavior (if present).</li>
+                      </ul>
+                    </li>
+                    <li><strong>Duration</strong>: how long the door stays open (in seconds; excludes MoveTime).</li>
+                    <li><strong>PressMax</strong>: how many times the Trigger can be used per round (–1 = unlimited).</li>
+                    <li><strong>Team</strong>: “GRN”, “RED”, or blank for both teams.</li>
+                    <li><strong>WaitForFinish</strong>: if enabled, forces players to wait until the door fully closes before retriggering.</li>
+                  </ul>
+                </li>
+                <li><code>ForceCloseDuring</code> Configuration:
+                  <ul>
+                    <li>Specifies which stages the door cannot be opened by players.</li>
+                    <li>“Setup” = only during AD setup phase. “Stage1” = before any captures. “Stage2/3” = after captures in AD/KOTH/3CP as appropriate.</li>
+                  </ul>
+                </li>
+                <li><code>ForceOpenDuring</code> Configuration:
+                  <ul>
+                    <li>Specifies which stages the door stays permanently open.</li>
+                    <li>Follows the same stage naming as <code>ForceCloseDuring</code>.</li>
+                    <li>Cannot overlap with the same stage in <code>ForceCloseDuring</code>.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
@@ -265,7 +293,7 @@
       </div>
     </section>
 
-    <!-- ControlPoints (two images) -->
+    <!-- ControlPoints -->
     <section class="panel">
       <div class="row">
         <div class="col">
@@ -285,7 +313,7 @@
       </div>
     </section>
 
-    <!-- Briefcases (two images) -->
+    <!-- Briefcases -->
     <section class="panel">
       <div class="row">
         <div class="col">
@@ -349,12 +377,12 @@
           <h2>GameMode</h2>
           <ul>
             <li><code>GameMode</code> sets gamemode: <code>"KOTH","AD","3CP","CTF","Arena","None"</code>.</li>
-            <li><strong>KOTH</strong>: adds <code>ActivateIn</code> IntValue.</li>
+            <li><strong>KOTH</strong>: adds <code>ActivateIn</code> IntValue (seconds until hill capture).</li>
             <li><strong>AD</strong>: adds <code>GameTimer</code>, <code>FirstCap</code>, <code>SetupTimer</code>.</li>
             <li><strong>3CP</strong>: no extra values.</li>
             <li><strong>CTF</strong>: adds <code>CritsOnCap</code>, <code>MaxTime</code>, <code>PlayTo</code>, <code>TimeOnCap</code>.</li>
             <li><strong>Arena</strong>: adds <code>ActivateIn</code>, <code>PrepTime</code>.</li>
-            <li><strong>None</strong>: only <code>PrepTime</code> (infinite timer).</li>
+            <li><strong>None</strong>: only <code>PrepTime</code> (infinite timer; end via VIP command).</li>
           </ul>
         </div>
       </div>
