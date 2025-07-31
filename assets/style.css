@@ -1,0 +1,224 @@
+/* -----------------------------------------
+   GLOBAL RESET & BASE
+----------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a0a;
+  color: #e0e0e0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* -----------------------------------------
+   VARIABLES
+----------------------------------------- */
+:root {
+  --primary:           #7f3fbf;
+  --primary-glow:      rgba(127,63,191,0.4);
+  --panel-bg:          rgba(255,255,255,0.04);
+  --panel-border:      rgba(255,255,255,0.1);
+  --text-light:        #f5f5f5;
+  --text-muted:        #aaa;
+  --radius:            12px;
+  --transition:        0.3s ease-in-out;
+  --header-duration:   15s;
+}
+
+/* -----------------------------------------
+   NAVIGATION
+----------------------------------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  background: rgba(10,10,10,0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--panel-border);
+  padding: 0.75rem 1rem;
+}
+.navbar a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 600;
+  position: relative;
+  transition: color var(--transition);
+}
+.navbar a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width var(--transition), left var(--transition);
+}
+.navbar a:hover {
+  color: var(--primary);
+}
+.navbar a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* -----------------------------------------
+   HEADER
+----------------------------------------- */
+header {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+  border-bottom: 5px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%; height: 200%;
+  background: linear-gradient(
+    45deg,
+    #3b0066, #61008a, #7f3fbf, #61008a, #3b0066
+  );
+  background-size: 400% 400%;
+  animation: hueShift var(--header-duration) infinite;
+  z-index: -2;
+}
+header::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: -1;
+}
+header h1 {
+  color: #fff;
+  font-size: 3rem;
+  text-shadow: 0 0 10px var(--primary-glow);
+  letter-spacing: 1px;
+}
+@keyframes hueShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* -----------------------------------------
+   LAYOUT & PANELS
+----------------------------------------- */
+.container {
+  max-width: 960px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+}
+.panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(8px);
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+.panel h2 {
+  color: var(--primary);
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 6px var(--primary-glow);
+}
+.panel ul {
+  list-style: none;
+  margin-left: 1rem;
+}
+.panel ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+.panel ul li::before {
+  content: '•';
+  position: absolute; left: 0;
+  color: var(--primary);
+  text-shadow: 0 0 4px var(--primary-glow);
+}
+.panel ul ul li::before {
+  color: var(--text-muted);
+}
+.row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.col {
+  flex: 1;
+  min-width: 260px;
+}
+.col img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* -----------------------------------------
+   BUTTONS
+----------------------------------------- */
+.button, .panel a.button {
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 0 12px var(--primary-glow);
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+.button:hover, .panel a.button:hover {
+  background: #9250d6;
+  box-shadow: 0 0 20px var(--primary-glow);
+  transform: scale(1.02);
+}
+
+/* -----------------------------------------
+   FOOTER
+----------------------------------------- */
+footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* -----------------------------------------
+   RESPONSIVE
+----------------------------------------- */
+@media (max-width: 700px) {
+  header h1 { font-size: 2.5rem; }
+}
+@media (max-width: 500px) {
+  header h1 { font-size: 2rem; }
+}

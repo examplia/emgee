@@ -9,143 +9,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png"/>
   <link rel="shortcut icon" href="assets/favicon.png" type="image/png"/>
 
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <!-- Google Font & CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
-
-  <style>
-    :root {
-      --purple:        #5e3d7a;
-      --light-grey:    #f0f0f0;
-      --white:         #ffffff;
-      --dark:          #333333;
-      --border:        #dddddd;
-      --radius:        8px;
-      --gap:           1rem;
-      --font:          'Poppins', sans-serif;
-      --accent-button: #7f3fbf;
-      --accent-hover:  #9338d6;
-    }
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: var(--font);
-      background: var(--light-grey);
-      color: var(--dark);
-      line-height: 1.5;
-    }
-
-    /* NAVIGATION */
-    .navbar {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      text-align: center;
-      padding: 0.5rem 1rem;
-    }
-    .navbar a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: var(--purple);
-      font-weight: 600;
-    }
-    .navbar a:hover { text-decoration: underline; }
-
-    /* HERO */
-    header {
-      position: relative;
-      height: 300px;
-      background:
-        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-        url('assets/format-hero.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 5px solid var(--purple);
-      margin-bottom: 2rem;
-    }
-    header h1 {
-      color: var(--white);
-      font-size: 3rem;
-      font-weight: 400;
-    }
-
-    /* LAYOUT */
-    .container {
-      max-width: 900px;
-      margin: 0 auto 3rem;
-      padding: 0 1rem;
-    }
-    .panel {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .panel h2 {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-      color: var(--purple);
-    }
-    .panel ul {
-      list-style: disc inside;
-      margin-bottom: 1rem;
-      margin-left: 0.5rem;
-    }
-    .panel ul ul {
-      list-style: circle inside;
-      margin-left: 1rem;
-    }
-    .panel li + li {
-      margin-top: 0.5rem;
-    }
-    code {
-      background: #eee;
-      padding: 0.1em 0.3em;
-      border-radius: 4px;
-      font-family: monospace;
-    }
-
-    .row {
-      display: flex;
-      gap: var(--gap);
-      flex-wrap: wrap;
-    }
-    .col {
-      flex: 1;
-      min-width: 280px;
-    }
-    .col img {
-      width: 100%;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      display: block;
-      margin-bottom: var(--gap);
-    }
-    a.button {
-      display: inline-block;
-      padding: 0.6rem 1.8rem;
-      border-radius: var(--radius);
-      text-decoration: none;
-      font-weight: 600;
-      color: var(--white);
-      background: var(--accent-button);
-      transition: background 0.3s;
-      margin-top: 1rem;
-    }
-    a.button:hover {
-      background: var(--accent-hover);
-    }
-
-    @media (max-width: 600px) {
-      .row { flex-direction: column; }
-      header h1 { font-size: 2rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/style.css"/>
 </head>
 <body>
 
@@ -179,22 +45,20 @@
       </div>
     </section>
 
-    <!-- Get Plugin & Tips -->
+    <!-- Plugin & Tips -->
     <section class="panel">
       <h2>Get the TC2 Map Plugin!</h2>
       <ul>
-        <li>Expedite the map making process greatly with special custom-made features!</li>
+        <li>Expedite the map–making process greatly with special custom-made features!</li>
         <li>Deploy copies of the test maps and gameplay kits, automate lengthy processes, and validate your map before publishing for a smooth in-game implementation!</li>
         <li>The resources on this page reference this plugin and assume you have immediate access to it.</li>
       </ul>
-      <a href="https://create.roblox.com/store/asset/13046258210/TC2-Build-Suite" class="button" target="_blank">
-        Download TC2 Build Suite
-      </a>
+      <a href="https://create.roblox.com/store/asset/13046258210/TC2-Build-Suite" class="button" target="_blank">Download TC2 Build Suite</a>
 
       <h2>Tips</h2>
       <ul>
         <li>Keep a copy of the test map for your map’s gamemode at all times in your workspace! Once you’ve finished the geometry (or Ignore, Doors, etc.), simply replace the test-map parts with your own.</li>
-        <li>Play around on the test maps in-game and see for yourself what you can and can’t shoot through, what opens and closes, what you can and can’t walk on, and whatever else interesting you might find!</li>
+        <li>Play around on the test maps in-game to discover shoot-through walls, open/close doors, walkable surfaces, and anything else interesting!</li>
         <li>Follow along with the test maps and prop pack when reading this guide!</li>
         <li><strong>USE THE TEST MAPS!!!</strong></li>
       </ul>
@@ -212,10 +76,10 @@
           <ul>
             <li>The Geometry folder contains most of the physical environment that players see and interact with.</li>
             <li>Without it, players wouldn't have a map to even play on!</li>
-            <li>All parts in Geometry block hitscan (bullets and melee).</li>
-            <li>Disabling <code>CanCollide</code> allows projectiles and players to pass through the part.</li>
-            <li>Disabling <code>CanTouch</code> allows stickies to bounce off the part.</li>
-            <li>The only parts not included in Geometry are player interactables (Doors, health/ammo kits, KillBricks) and parts that do not block hitscan.</li>
+            <li>All parts in the Geometry folder will block hitscan (bullets and melee).</li>
+            <li>Disabling <code>CanCollide</code> allows projectiles (rockets, grenades, mad milk, etc.) and players to pass through the part.</li>
+            <li>Disabling <code>CanTouch</code> allows stickies to bounce off the part rather than stick to it if <code>CanCollide</code> is enabled.</li>
+            <li>The only parts of maps that are not included in Geometry are player interactables (Doors, kits, KillBricks) and parts that do not block hitscan.</li>
           </ul>
         </div>
       </div>
@@ -231,18 +95,12 @@
         <div class="col">
           <h2>Ignore</h2>
           <ul>
-            <li>The Ignore folder contains important gameplay features: CameraSpots, KillBricks, NoBuilds, and Water.</li>
-            <li>Parts in Ignore are completely ignored by hitscan and projectiles, <em>excluding Annihilator's projectiles</em>, which behave just as they do in Geometry.</li>
-            <li><code>CameraSpots</code> contain all of the spectator camera positions for each team. There are three folders inside: General, GRN, and RED.
-              <ul>
-                <li><strong>General</strong> allows both teams to use the camera.</li>
-                <li><strong>GRN</strong> and <strong>RED</strong> allow only their respective teams.</li>
-                <li>Cameras are created by placing a part inside those subfolders; add a NumberValue called “FOV” to modify field of view.</li>
-              </ul>
-            </li>
-            <li><code>KillBricks</code> kill the player instantly upon contact.</li>
-            <li><code>NoBuilds</code> prevent building within their bounds.</li>
-            <li><code>Water</code> turns all parts into Roblox terrain water.</li>
+            <li>The Ignore folder contains CameraSpots, KillBricks, NoBuilds, and Water.</li>
+            <li>Parts in Ignore are completely ignored by hitscan and projectiles, excluding Annihilator's projectiles, which behave just as they do in Geometry.</li>
+            <li><code>CameraSpots</code> contain spectator camera positions—subfolders: General, GRN, RED. A NumberValue “FOV” adjusts field of view.</li>
+            <li><code>KillBricks</code> instantly kill players on contact.</li>
+            <li><code>NoBuilds</code> prevent building in their bounds.</li>
+            <li><code>Water</code> turns parts into terrain water.</li>
           </ul>
         </div>
       </div>
@@ -258,34 +116,28 @@
         <div class="col">
           <h2>Doors</h2>
           <ul>
-            <li>The Doors folder contains all of the doors that open and close depending on player interaction and which points have been captured.</li>
+            <li>The Doors folder contains doors that open/close based on player interaction and capture stages.</li>
             <li>Door models have two core attributes:
               <ul>
-                <li><strong>Move</strong>: how many studs in each direction the door moves when opened.</li>
-                <li><strong>MoveTime</strong>: how long (in seconds) it takes to move.</li>
+                <li><strong>Move</strong>: studs to move when opened.</li>
+                <li><strong>MoveTime</strong>: seconds to move.</li>
               </ul>
             </li>
-            <li>Door parts behave the same as parts in Geometry (collisions, projectiles, etc.).</li>
-            <li>Each door model must contain:
+            <li>Door parts behave like Geometry (collisions, projectiles).</li>
+            <li>Each model must contain:
               <ul>
-                <li><code>PrimaryPart</code> (under Pivot)—moves when the door opens/closes; must be Anchored. <em>See photos on left.</em></li>
-                <li><code>Trigger</code>—detects player input to open. Configuration named “Properties” with:
+                <li><code>PrimaryPart</code> under Pivot—moves when door opens; must be  Anchored.</li>
+                <li><code>Trigger</code>—detects input. “Properties” config:
                   <ul>
-                    <li><strong>ActivationType</strong> (1–4):
-                      <ul>
-                        <li><code>1</code> = touch (disables CanCollide, acts like Ignore).</li>
-                        <li><code>2</code> = melee (enables CanCollide, acts like Geometry).</li>
-                        <li><code>3</code> = melee, bullets, projectiles (enables CanCollide).</li>
-                      </ul>
-                    </li>
-                    <li><strong>Duration</strong>: how long the door stays open (seconds).</li>
-                    <li><strong>PressMax</strong>: uses per round (–1 = unlimited).</li>
+                    <li><strong>ActivationType</strong> (1–4): 1=touch (no collide), 2=melee, 3=projectiles, etc.</li>
+                    <li><strong>Duration</strong>: how long door stays open.</li>
+                    <li><strong>PressMax</strong>: uses per round (–1=unlimited).</li>
                     <li><strong>Team</strong>: “GRN”, “RED”, or blank.</li>
-                    <li><strong>WaitForFinish</strong>: forces wait until door closes before re-trigger.</li>
+                    <li><strong>WaitForFinish</strong>: wait until close before re-trigger.</li>
                   </ul>
                 </li>
-                <li><code>ForceCloseDuring</code>—stages the door cannot be opened (Setup, Stage1, Stage2, Stage3).</li>
-                <li><code>ForceOpenDuring</code>—stages the door stays permanently open; cannot overlap with ForceCloseDuring.</li>
+                <li><code>ForceCloseDuring</code>: stages door cannot be opened (Setup, Stage1–3).</li>
+                <li><code>ForceOpenDuring</code>: stages door stays permanently open; cannot overlap ForceCloseDuring.</li>
               </ul>
             </li>
           </ul>
@@ -302,9 +154,8 @@
         <div class="col">
           <h2>Clips</h2>
           <ul>
-            <li>The Clips folder contains all invisible walls that block players.</li>
-            <li>Parts in Clips are ignored by weapons but block players.</li>
-            <li><code>CanCollide</code> must be enabled; other part properties obsolete.</li>
+            <li>Invisible walls blocking players.</li>
+            <li>Ignored by weapons but block players—<code>CanCollide</code> enabled.</li>
           </ul>
         </div>
       </div>
@@ -314,14 +165,14 @@
     <section class="panel">
       <div class="row">
         <div class="col">
-          <img src="assets/format-items.png" alt="Kits as seen on the test maps">
+          <img src="assets/format-items.png" alt="Kits on test maps">
         </div>
         <div class="col">
           <h2>Items</h2>
           <ul>
-            <li>The Items folder contains resupply cabinets and health/ammo kits.</li>
-            <li>Models match in-game sizes—use them!</li>
-            <li>Parts named “Resupply” spawn cabinets; named “SizeType” spawn kits (e.g. “MediumAmmo”, “SmallHP”).</li>
+            <li>Resupply cabinets and health/ammo kits.</li>
+            <li>Models match in-game sizes; use them!</li>
+            <li>Parts named “Resupply” cabinet; “SizeType” for kits (“MediumAmmo”, “SmallHP”).</li>
           </ul>
         </div>
       </div>
@@ -331,17 +182,17 @@
     <section class="panel">
       <div class="row">
         <div class="col">
-          <img src="assets/format-controlpoints1.png" alt="Control point in studio/in-game">
-          <img src="assets/format-controlpoints2.png" alt="Control point model and zone UI">
+          <img src="assets/format-controlpoints1.png" alt="Control point in-game">
+          <img src="assets/format-controlpoints2.png" alt="Control point model & zone">
         </div>
         <div class="col">
           <h2>ControlPoints</h2>
           <ul>
-            <li>Contains control points for GameModes: KOTH, AD, 3CP, Arena.</li>
-            <li><strong>KOTH/Arena</strong>: folder named “ControlPoint” with the hill.</li>
-            <li><strong>AD</strong>: <code>ControlPoint1</code> (first), <code>ControlPoint2</code> (unlocked after CP1).</li>
-            <li><strong>3CP</strong>: CP1=Red start, CP2=neutral, CP3=Green start.</li>
-            <li>Each folder contains <code>PlayerCaptureTime</code>, <code>PointLocation</code>, <code>CaptureZone</code>.</li>
+            <li>For KOTH, AD, 3CP, Arena.</li>
+            <li>KOTH/Arena: folder “ControlPoint” with hill.</li>
+            <li>AD: <code>ControlPoint1</code> then <code>ControlPoint2</code>.</li>
+            <li>3CP: CP1=Red start, CP2=neutral, CP3=Green start.</li>
+            <li>Contains <code>PlayerCaptureTime</code>, <code>PointLocation</code>, <code>CaptureZone</code>.</li>
           </ul>
         </div>
       </div>
@@ -351,15 +202,15 @@
     <section class="panel">
       <div class="row">
         <div class="col">
-          <img src="assets/format-briefcases1.png" alt="Briefcases as seen on the CTF test map">
-          <img src="assets/format-briefcases2.png" alt="Red and Green briefcases">
+          <img src="assets/format-briefcases1.png" alt="Green briefcase">
+          <img src="assets/format-briefcases2.png" alt="Red briefcase">
         </div>
         <div class="col">
           <h2>Briefcases</h2>
           <ul>
-            <li>Folder for CTF objectives only: “Green” & “Red.”</li>
-            <li>Objectives can be any part named accordingly.</li>
-            <li><code>GreenTrigger</code> / <code>RedTrigger</code> fire on touch by opposing carrier.</li>
+            <li>CTF objectives: “Green” & “Red”.</li>
+            <li>Any part named accordingly.</li>
+            <li><code>GreenTrigger</code> / <code>RedTrigger</code> fire on opposing carrier touch.</li>
           </ul>
         </div>
       </div>
@@ -369,15 +220,15 @@
     <section class="panel">
       <div class="row">
         <div class="col">
-          <img src="assets/format-teamspecific.png" alt="Barriers and SpawnZones as seen on test maps">
+          <img src="assets/format-teamspecific.png" alt="Barriers & SpawnZones">
         </div>
         <div class="col">
           <h2>TeamSpecific</h2>
           <ul>
-            <li>Subfolders: <code>GRN</code> & <code>RED</code> containing Spawns, Checkpoints, SpawnZones, Barriers.</li>
+            <li>Folders: <code>GRN</code> & <code>RED</code> with Spawns, Checkpoints, SpawnZones, Barriers.</li>
             <li><code>Spawns</code>: respawn points per stage.</li>
-            <li><code>Checkpoints</code>: optional; respawn at last touched.</li>
-            <li><code>SpawnZones</code>: class/loadout zones; opposing zone = kill.</li>
+            <li><code>Checkpoints</code>: optional respawns.</li>
+            <li><code>SpawnZones</code>: class zones; opposing kills.</li>
             <li><code>Barriers</code>: block only opposite team.</li>
           </ul>
         </div>
@@ -388,13 +239,13 @@
     <section class="panel">
       <div class="row">
         <div class="col">
-          <img src="assets/format-settings.png" alt="Settings folder format">
+          <img src="assets/format-settings.png" alt="Settings format">
         </div>
         <div class="col">
           <h2>Settings</h2>
           <ul>
-            <li>Folder contains Lighting, Terrain, and General settings.</li>
-            <li>Use the TC2 Map Plugin to automate Lighting & Terrain.</li>
+            <li>Lighting, Terrain, General.</li>
+            <li>Use TC2 Plugin for automation.</li>
             <li>General toggles (<code>AllowUnanchoredParts</code>, <code>Climbing</code>) off unless needed.</li>
           </ul>
         </div>
@@ -405,24 +256,28 @@
     <section class="panel">
       <div class="row">
         <div class="col">
-          <img src="assets/format-gamemode.png" alt="GameMode format for AD (with nested IntValues)">
+          <img src="assets/format-gamemode.png" alt="GameMode format for AD">
         </div>
         <div class="col">
           <h2>GameMode</h2>
           <ul>
-            <li><code>GameMode</code> StringValue sets the gamemode: <code>"KOTH", "AD", "3CP", "CTF", "Arena", "None"</code>.</li>
+            <li><code>GameMode</code> sets: <code>"KOTH","AD","3CP","CTF","Arena","None"</code>.</li>
             <li><strong>KOTH</strong>: adds <code>ActivateIn</code> IntValue.</li>
             <li><strong>AD</strong>: adds <code>GameTimer</code>, <code>FirstCap</code>, <code>SetupTimer</code>.</li>
             <li><strong>3CP</strong>: no extra values.</li>
             <li><strong>CTF</strong>: adds <code>CritsOnCap</code>, <code>MaxTime</code>, <code>PlayTo</code>, <code>TimeOnCap</code>.</li>
             <li><strong>Arena</strong>: adds <code>ActivateIn</code>, <code>PrepTime</code>.</li>
-            <li><strong>None</strong>: adds <code>PrepTime</code> (infinite timer; end via VIP command).</li>
+            <li><strong>None</strong>: adds <code>PrepTime</code> (infinite timer; end via VIP).</li>
           </ul>
         </div>
       </div>
     </section>
 
   </div>
+
+  <footer>
+    &copy; 2025 Typical Colors 2
+  </footer>
 
 </body>
 </html>
