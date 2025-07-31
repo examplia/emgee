@@ -1,16 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0;url=https://www.youtube.com/embed/QOhmcbfwxnA?autoplay=1&controls=0&disablekb=1&rel=0">
-  <title>Think fast chucklenuts</title>
-  <script>
-    // fallback JS redirect
-    window.location.replace("https://www.youtube.com/embed/QOhmcbfwxnA?autoplay=1&controls=0&disablekb=1&rel=0");
-  </script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Submissions</title>
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --purple:    #5e3d7a;
+      --light-grey:#f0f0f0;
+      --white:     #ffffff;
+      --dark:      #333333;
+      --border:    #dddddd;
+      --radius:    8px;
+      --gap:       1rem;
+      --font:      'Poppins', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      background: var(--light-grey);
+      color: var(--dark);
+      line-height: 1.5;
+    }
+
+    /* HERO HEADER */
+    header {
+      position: relative;
+      height: 300px;
+      background: 
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('assets/hero.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 5px solid var(--purple);
+    }
+    header h1 {
+      color: var(--white);
+      font-size: 3rem;
+      font-weight: 400;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .panel {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    /* First panel: image + disclaimer */
+    .row {
+      display: flex;
+      gap: var(--gap);
+      flex-wrap: wrap;
+    }
+    .col {
+      flex: 1;
+      min-width: 280px;
+    }
+    .col img {
+      width: 100%;
+      border-radius: var(--radius);
+      display: block;
+    }
+    .panel h2 {
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+      color: var(--dark);
+    }
+    .panel ul {
+      list-style: disc inside;
+      margin-left: 0.5rem;
+    }
+    .panel ul ul {
+      list-style-type: circle;
+      margin-left: 1rem;
+    }
+    .panel li + li { margin-top: 0.5rem; }
+
+    /* Second panel: criteria */
+    .panel--criteria h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    code {
+      background: #eee;
+      padding: 0.1em 0.3em;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+    }
+  </style>
 </head>
 <body>
-  <!-- in case refresh & JS both fail -->
-  <p>Redirecting you to your surprise… <a href="https://www.youtube.com/embed/QOhmcbfwxnA?autoplay=1&controls=0&disablekb=1&rel=0">Click here</a>.</p>
+
+  <header>
+    <h1>Submissions</h1>
+  </header>
+
+  <div class="container">
+    <!-- Panel 1 -->
+    <section class="panel">
+      <div class="row">
+        <div class="col">
+          <img src="assets/submission-image.png" alt="Submission graphic">
+        </div>
+        <div class="col">
+          <h2>Disclaimer</h2>
+          <ul>
+            <li>You are able to load in any map you want in game. As long as <strong>Roblox Community Standards</strong> are followed, you will not be banned for uploading a map.</li>
+            <li>With that being said, uploading maps with any form of inappropriate imagery, language, or innuendo, <strong>even if it is hidden, WILL RESULT IN A PERMANENT BAN</strong>.
+              <ul>
+                <li>Just be reasonable, and ask yourself: <em>“would a moderator approve of your map if they were to inspect it?”</em></li>
+                <li>Stick to the prop pack if you wish to use text for gameplay on your map.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Panel 2 -->
+    <section class="panel panel--criteria">
+      <h2>TC2 Workshop Map Submission Criteria</h2>
+      <ul>
+        <li>The current TC2 map pool contains <strong>many</strong> TF2 maps, and that is something we <strong>are looking to change</strong>.</li>
+        <li>We want future maps to be <strong>high quality, completely original</strong> and consistent with other maps.
+          <ul>
+            <li>The only map that currently meets these standards is <code>3cp_yellowvalley</code>, and even it has some flaws.
+              <ul>
+                <li>To increase your chances of your map being added, study <code>3cp_yellowvalley</code> very attentively: attention to detail, prop frequency, terrain creation, etc.</li>
+                <li>Maps should not look like they are part of <code>3cp_yellowvalley</code>, but rather part of the same world.</li>
+              </ul>
+            </li>
+            <li><strong>High quality</strong> means craftsmanship—when you look closer, you say “a lot of effort was put into this.”</li>
+            <li><strong>Completely original</strong> means every aspect was created by the mapper. Instead of copying TF2, ask yourself “what would work here?”</li>
+            <li><strong>Consistent</strong> means meeting the same detail level and art-style as other maps.
+              <ul>
+                <li>Although <code>3cp_yellowvalley</code> is the only satisfactory map now, future maps should match its art-style, not TF2’s.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>More resources on map detailing/layouts are coming, but for now:
+          <ul>
+            <li>Do not use any TF2 props—use the provided prop pack and get creative.</li>
+            <li>Focus on parts for detailing, not props. Make walls pretty!</li>
+            <li>Master triangle terrain: study <code>3cp_yellowvalley</code> and see how little props are needed outdoors.</li>
+            <li>For similarly themed areas, copy <code>3cp_yellowvalley</code> designs 1:1 for consistency.</li>
+            <li>Art-style is 2000–2010: nature reserves, mines, factories—GRN protects, RED exploits.</li>
+          </ul>
+        </li>
+        <li>For any questions, ping <strong>@FWEEEEEE</strong> on the official TC2 Discord!</li>
+      </ul>
+    </section>
+  </div>
+
 </body>
 </html>
