@@ -4,10 +4,16 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Submissions</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png"/>
+  <link rel="shortcut icon" href="assets/favicon.png" type="image/png"/>
+
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+
   <style>
     :root {
       --purple:       #5e3d7a;
@@ -61,7 +67,7 @@
       margin-bottom: 2rem;
     }
 
-    /* Two-column layout for image + text */
+    /* Two-column layout */
     .row {
       display: flex;
       gap: var(--gap);
@@ -100,7 +106,7 @@
       font-family: monospace;
     }
 
-    /* Discord & formatting CTA panels */
+    /* CTA panels */
     .panel--discord {
       text-align: center;
     }
@@ -109,7 +115,6 @@
       color: var(--discord);
       margin-bottom: 1rem;
     }
-
     .button {
       display: inline-block;
       padding: 0.6rem 1.8rem;
@@ -126,7 +131,6 @@
       background: var(--discord-hover);
     }
 
-    /* Responsive adjustments */
     @media (max-width: 600px) {
       header h1 { font-size: 2rem; }
       .row { flex-direction: column; }
