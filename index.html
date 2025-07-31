@@ -16,19 +16,22 @@
 
   <style>
     :root {
-      --purple:       #5e3d7a;
-      --light-grey:   #f0f0f0;
-      --white:        #ffffff;
-      --dark:         #333333;
-      --border:       #dddddd;
-      --radius:       8px;
-      --gap:          1rem;
-      --font:         'Poppins', sans-serif;
-      --discord:      #7289DA;
-      --discord-hover:#5b6eae;
+      --purple:        #5e3d7a;
+      --light-grey:    #f0f0f0;
+      --white:         #ffffff;
+      --dark:          #333333;
+      --border:        #dddddd;
+      --radius:        8px;
+      --gap:           1rem;
+      --font:          'Poppins', sans-serif;
+      --discord:       #7289DA;
+      --discord-hover: #5b6eae;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
       font-family: var(--font);
       background: var(--light-grey);
@@ -36,7 +39,24 @@
       line-height: 1.5;
     }
 
-    /* HERO HEADER */
+    /* NAVIGATION */
+    .navbar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      padding: 0.5rem 1rem;
+    }
+    .navbar a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: var(--purple);
+      font-weight: 600;
+    }
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+
+    /* HERO */
     header {
       position: relative;
       height: 300px;
@@ -54,6 +74,7 @@
       font-weight: 400;
     }
 
+    /* LAYOUT */
     .container {
       max-width: 900px;
       margin: 2rem auto;
@@ -66,8 +87,6 @@
       padding: 1.5rem;
       margin-bottom: 2rem;
     }
-
-    /* Two-column layout */
     .row {
       display: flex;
       gap: var(--gap);
@@ -82,7 +101,6 @@
       border-radius: var(--radius);
       display: block;
     }
-
     .panel h2 {
       margin-bottom: 0.75rem;
       font-size: 1.25rem;
@@ -106,7 +124,7 @@
       font-family: monospace;
     }
 
-    /* CTA panels */
+    /* BUTTONS */
     .panel--discord {
       text-align: center;
     }
@@ -119,12 +137,12 @@
       display: inline-block;
       padding: 0.6rem 1.8rem;
       border-radius: var(--radius);
-      text-decoration: none;
       text-transform: uppercase;
       font-weight: 600;
       color: var(--white);
       background: var(--discord);
-      transition: background 0.3s ease;
+      text-decoration: none;
+      transition: background 0.3s;
       margin-top: 1rem;
     }
     .button:hover {
@@ -132,12 +150,18 @@
     }
 
     @media (max-width: 600px) {
-      header h1 { font-size: 2rem; }
       .row { flex-direction: column; }
+      header h1 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
+
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="map-formatting.html">Map Formatting</a>
+    <a href="quick-info.html">Quick Info</a>
+  </nav>
 
   <header>
     <h1>Submissions</h1>
@@ -145,7 +169,7 @@
 
   <div class="container">
 
-    <!-- Panel 1: Disclaimer -->
+    <!-- 1) Disclaimer -->
     <section class="panel">
       <div class="row">
         <div class="col">
@@ -166,7 +190,7 @@
       </div>
     </section>
 
-    <!-- Panel 2: Submission Criteria -->
+    <!-- 2) Submission Criteria -->
     <section class="panel">
       <h2>TC2 Workshop Map Submission Criteria</h2>
       <ul>
@@ -175,46 +199,42 @@
           <ul>
             <li>The only map that currently meets these standards is <code>3cp_yellowvalley</code>, and even it has some flaws.
               <ul>
-                <li>To increase your chances of your map being added, study <code>3cp_yellowvalley</code> very attentively: attention to detail, prop frequency, terrain creation, etc.</li>
+                <li>To increase your chances of your map being added, study <code>3cp_yellowvalley</code> very attentively: attention to every part of the map, frequency of props, terrain creation, etc.</li>
                 <li>Maps should not look like they are part of <code>3cp_yellowvalley</code>, but rather part of the same world.</li>
               </ul>
             </li>
-            <li><strong>High quality</strong> means craftsmanship—when you look closer, you say “a lot of effort was put into this.”</li>
-            <li><strong>Completely original</strong> means every aspect was created by the mapper. Instead of copying TF2, ask yourself “what would work here?”</li>
-            <li><strong>Consistent</strong> means meeting the same detail level and art-style as other maps.
+            <li><strong>High quality</strong> means that a map should have good craftsmanship so that when you look a little bit closer, it makes you say “a lot of effort was put into this.”</li>
+            <li><strong>Completely original</strong> means every aspect was created and envisioned by the mapper. Instead of looking to how TF2 typically does things, think to yourself, “what would work here?”</li>
+            <li><strong>Consistent</strong> means that a map meets the same level of detail and art-style of other maps in the pool.
               <ul>
-                <li>Although <code>3cp_yellowvalley</code> is the only satisfactory map now, future maps should match its art-style, not TF2’s.</li>
+                <li>Although <code>3cp_yellowvalley</code> is the only satisfactory map in the pool, we want future TC2 maps to have the same art-style as it does, not the TF2 maps.</li>
               </ul>
             </li>
           </ul>
         </li>
-        <li>More resources on map detailing/layouts are coming, but for now:
+        <li>More resources on map detailing and layouts are to come, but for the meantime:
           <ul>
-            <li>Do not use any TF2 props—use the provided prop pack and get creative.</li>
-            <li>Focus on parts for detailing, not props. Make walls pretty!</li>
-            <li>Master triangle terrain: study <code>3cp_yellowvalley</code> and see how little props are needed outdoors.</li>
-            <li>For similarly themed areas, copy <code>3cp_yellowvalley</code> designs 1:1 for consistency.</li>
-            <li>Art-style is 2000–2010: nature reserves, mines, factories—GRN protects, RED exploits.</li>
+            <li>Do not use any TF2 props—use the prop pack that is provided and get creative!</li>
+            <li>Focus on using parts for detailing rather than props. Make your walls pretty to look at!</li>
+            <li>Master the art of triangle terrain, again: study <code>3cp_yellowvalley</code> and look how little need for props there are for outdoor areas (other than trees)!</li>
+            <li>When designing similarly themed areas as <code>3cp_yellowvalley</code>, copy the designs 1:1 in order to improve consistency!</li>
+            <li>The art-style is set around the years 2000–2010. Maps should be set in nature reserves, mining sites, factories, or any other industrial setting where GRN is trying to protect the environment while RED is trying to exploit it.</li>
           </ul>
         </li>
-        <li>For any questions regarding your maps, ping <strong>@FWEEEEEE</strong> on the official TC2 Discord!</li>
+        <li>For any questions regarding your maps, feel free to ping <strong>@FWEEEEEE</strong> on the official TC2 Discord!</li>
       </ul>
     </section>
 
-    <!-- Panel 3: Discord CTA -->
+    <!-- 3) Join Discord -->
     <section class="panel panel--discord">
       <h2>Join the Typical Colors 2 Discord</h2>
-      <a href="https://discord.gg/b5RRucMeYv" class="button" target="_blank">
-        Join Discord
-      </a>
+      <a href="https://discord.gg/b5RRucMeYv" class="button" target="_blank">Join Discord</a>
     </section>
 
-    <!-- Panel 4: Map Formatting Guide -->
+    <!-- 4) Go to Map Formatting -->
     <section class="panel panel--discord">
       <h2>Want the Map Formatting Guide?</h2>
-      <a href="map-formatting.html" class="button">
-        View Map Formatting
-      </a>
+      <a href="map-formatting.html" class="button">View Map Formatting</a>
     </section>
 
   </div>

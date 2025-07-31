@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Quick Info</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png"/>
+  <link rel="shortcut icon" href="assets/favicon.png" type="image/png"/>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --purple:      #5e3d7a;
+      --light-grey:  #f0f0f0;
+      --white:       #ffffff;
+      --dark:        #333333;
+      --border:      #dddddd;
+      --radius:      8px;
+      --gap:         1rem;
+      --font:        'Poppins', sans-serif;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: var(--font);
+      background: var(--light-grey);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .navbar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      padding: 0.5rem 1rem;
+    }
+    .navbar a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: var(--purple);
+      font-weight: 600;
+    }
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+    header {
+      background: var(--white);
+      border-bottom: 5px solid var(--purple);
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--purple);
+      font-weight: 400;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .panel {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .panel h2 {
+      font-size: 1.75rem;
+      color: var(--purple);
+      margin-bottom: 1rem;
+    }
+    .panel h3 {
+      font-size: 1.25rem;
+      margin: 1rem 0 0.5rem;
+      color: var(--purple);
+    }
+    .panel ul {
+      list-style: disc inside;
+      margin-left: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .panel ul ul {
+      list-style: circle inside;
+      margin-left: 1rem;
+    }
+    .panel li + li {
+      margin-top: 0.5rem;
+    }
+    code {
+      background: #eee;
+      padding: 0.1em 0.3em;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="map-formatting.html">Map Formatting</a>
+    <a href="quick-info.html">Quick Info</a>
+  </nav>
+
+  <header>
+    <h1>Quick Info</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- Stages + ControlPoints -->
+    <section class="panel">
+      <h2>Stages + ControlPoints</h2>
+
+      <h3>Attack / Defend</h3>
+      <ul>
+        <li><strong>Setup</strong>: RED sets up defenses, GRN is inside spawn. Damage is disabled.</li>
+        <li><strong>Stage 1</strong>: No control points captured by GRN. <code>ControlPoint1</code> can be captured by GRN.</li>
+        <li><strong>Stage 2</strong>: CP1 captured by GRN. <code>ControlPoint2</code> can be captured.</li>
+      </ul>
+
+      <h3>King Of The Hill</h3>
+      <ul>
+        <li><strong>Stage 1</strong>: Match start, <code>ControlPoint</code> neutral.</li>
+        <li><strong>Stage 2</strong>: CP captured by RED.</li>
+        <li><strong>Stage 3</strong>: CP captured by GRN.</li>
+      </ul>
+
+      <h3>3 Control Points</h3>
+      <ul>
+        <li><strong>Stage 1</strong>: <code>ControlPoint2</code> neutral, only point capturable.</li>
+        <li><strong>Stage 2</strong>: CP2 captured by RED; CP3 can be captured.</li>
+        <li><strong>Stage 3</strong>: CP2 captured by GRN; CP1 can be captured.</li>
+      </ul>
+    </section>
+
+    <!-- Weapon Collisions -->
+    <section class="panel">
+      <h2>Weapon Collisions</h2>
+      <p><em>Items listed are blocked by the given part.</em></p>
+      <ul>
+        <li>Hitscan (bullets, melee)</li>
+        <li>Projectiles (rockets, arrows, mad milk; excludes Annihilator’s projectiles)</li>
+        <li>Flames (flamethrower)</li>
+        <li>Grenades (grenade launcher)</li>
+        <li>Stickies (stickybombs)</li>
+        <li>Buildings</li>
+        <li>Players</li>
+        <li>Ragdolls</li>
+      </ul>
+
+      <h3>Geometry (CanCollide true, CanTouch true)</h3>
+      <ul>
+        <li>Hitscan</li>
+        <li>Projectiles</li>
+        <li>Flames</li>
+        <li>Grenades</li>
+        <li>Stickies (stick)</li>
+        <li>Buildings (can build)</li>
+        <li>Players</li>
+        <li>Ragdolls</li>
+      </ul>
+
+      <h3>Geometry (CanCollide false)</h3>
+      <ul>
+        <li>Hitscan</li>
+        <li>Projectiles (passes through; trajectory still collides)</li>
+        <li>Flames</li>
+        <li>Buildings (cannot build)</li>
+      </ul>
+
+      <h3>Geometry (CanCollide true, CanTouch false)</h3>
+      <ul>
+        <li>Hitscan</li>
+        <li>Projectiles</li>
+        <li>Flames</li>
+        <li>Grenades</li>
+        <li>Stickies (bounce)</li>
+        <li>Buildings (can build)</li>
+        <li>Players</li>
+        <li>Ragdolls</li>
+      </ul>
+
+      <h3>Ignore (CanCollide true)</h3>
+      <ul>
+        <li>Grenades</li>
+        <li>Stickies (stick)</li>
+        <li>Players</li>
+        <li>Ragdolls</li>
+      </ul>
+
+      <h3>Ignore (CanCollide false)</h3>
+      <ul><li>None</li></ul>
+
+      <h3>Ignore (CanCollide true, CanTouch false)</h3>
+      <ul>
+        <li>Grenades</li>
+        <li>Stickies (bounce)</li>
+        <li>Players</li>
+        <li>Ragdolls</li>
+      </ul>
+
+      <h3>Clips</h3>
+      <ul>
+        <li>Flames</li>
+        <li>Buildings (can build)</li>
+        <li>Players</li>
+      </ul>
+
+      <h3>KillBricks, Water, Cameras, JumpPads, Teleporters, SpawnZones</h3>
+      <p>Same as Ignore with respective properties.</p>
+
+      <h3>NoBuild</h3>
+      <ul>
+        <li>Buildings</li>
+        <li>Same as Ignore</li>
+      </ul>
+
+      <h3>Enemy Team’s Barrier</h3>
+      <ul>
+        <li>Grenades</li>
+        <li>Stickies (bounce)</li>
+        <li>Buildings (can build)</li>
+        <li>Players</li>
+        <li>Ragdolls</li>
+      </ul>
+    </section>
+
+  </div>
+
+</body>
+</html>
