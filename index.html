@@ -3,44 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fullscreen Tenor Embed</title>
-
-  <!-- Discord / Open Graph Embed -->
-  <meta property="og:title" content="This is not an IP logger">
-  <meta property="og:description" content="luneta is a stupid person">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://typicalcolors.com/"> <!-- replace with your actual URL -->
-  <meta property="og:image" content="https://media.tenor.com/PEYBrwLhLdAAAAAC/furry-murderer-furry-doom-slayer.gif">
-
-  <!-- Twitter fallback -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="This is not an IP logger">
-  <meta name="twitter:description" content="luneta is a stupid person">
-  <meta name="twitter:image" content="https://media.tenor.com/PEYBrwLhLdAAAAAC/furry-murderer-furry-doom-slayer.gif">
-
+  <title>Hall of Shame</title>
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
+      padding: 2rem;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .tenor-gif-embed {
-      height: 100%;
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #ff4d4d;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .shame-list {
+      max-width: 600px;
       width: 100%;
+      list-style: none;
+      padding: 0;
+    }
+    .shame-list li {
+      background: #222;
+      margin: 1rem 0;
+      padding: 1.5rem;
+      border-radius: 12px;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    }
+    .name {
+      font-weight: bold;
+      color: #ff6666;
+    }
+    .reason {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      color: #bbb;
     }
   </style>
 </head>
 <body>
-  <div class="tenor-gif-embed"
-       data-postid="25517260"
-       data-share-method="host"
-       data-aspect-ratio="1.77778"
-       data-width="100%">
-    <a href="https://tenor.com/view/furry-murderer-furry-doom-slayer-doom-eternal-gif-25517260">Furry Murderer Furry GIF</a> from 
-    <a href="https://tenor.com/search/furry+murderer-gifs">Furry Murderer GIFs</a>
-  </div>
-  <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+  <h1>Hall of Shame</h1>
+  <ul class="shame-list">
+    <li>
+      <span class="name">luneta333</span>
+      <div class="reason">Because they are annoying.</div>
+    </li>
+  </ul>
 </body>
 </html>
