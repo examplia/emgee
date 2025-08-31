@@ -1,34 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>dannst</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      background: black;
-    }
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Submissions</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png"/>
+  <link rel="shortcut icon" href="assets/favicon.png" type="image/png"/>
+
+  <!-- Open Graph / Discord Embed -->
+  <meta property="og:title" content="Typical Colors 2 – Submissions"/>
+  <meta property="og:description" content="Learn how to submit your TC2 Workshop map, see the disclaimer, criteria, and join our Discord!"/>
+  <meta property="og:image" content="https://typicalcolors.com/assets/hero.jpg"/>
+  <meta property="og:url" content="https://typicalcolors.com/index.html"/>
+  <meta property="og:type" content="website"/>
+
+  <!-- Google Font & CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/style.css"/>
 </head>
 <body>
-  <iframe 
-    src="https://www.youtube.com/embed/X52MdYiqPlQ?si=dmUx7NUoBZ3RWvxe" 
-    title="YouTube video player" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
-    allowfullscreen>
-  </iframe>
+
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="map-formatting.html">Map Formatting</a>
+    <a href="quick-info.html">Quick Info</a>
+  </nav>
+
+  <header>
+    <h1>Submissions</h1>
+  </header>
+
+  <div class="container">
+    <!-- Disclaimer -->
+    <section class="panel">
+      <div class="row">
+        <div class="col">
+          <img src="assets/submission-image.png" />
+        </div>
+        <div class="col">
+          <h2>Disclaimer</h2>
+          <ul>
+            <li>You are able to load in any map you want in game. As long as <strong>Roblox Community Standards</strong> are followed, you will not be banned for uploading a map.</li>
+            <li>With that being said, uploading maps with any form of inappropriate imagery, language, or innuendo, <strong>even if it is hidden, WILL RESULT IN A PERMANENT BAN</strong>.
+              <ul>
+                <li>Just be reasonable, and ask yourself: <em>“would a moderator approve of your map if they were to inspect it?”</em></li>
+                <li>Stick to the prop pack if you wish to use text for gameplay on your map.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Submission Criteria -->
+    <section class="panel">
+      <h2>TC2 Workshop Map Submission Criteria</h2>
+      <ul>
+        <li>The current TC2 map pool contains <strong>many</strong> TF2 maps, and that is something we <strong>are looking to change</strong>.</li>
+        <li>We want future maps to be <strong>high quality, completely original</strong> and consistent with other maps.
+          <ul>
+            <li>The only map that currently meets these standards is <code>3cp_yellowvalley</code>, and even it has some flaws.
+              <ul>
+                <li>To increase your chances, study <code>3cp_yellowvalley</code> attentively: detail, props, terrain, etc.</li>
+                <li>Maps should feel like part of the same world, not TF2.</li>
+              </ul>
+            </li>
+            <li><strong>High quality</strong> = craftsmanship that shows effort.</li>
+            <li><strong>Completely original</strong> = every aspect created by the mapper.</li>
+            <li><strong>Consistent</strong> = match the art-style & detail of existing TC2 maps.</li>
+          </ul>
+        </li>
+        <li>Quick tips:
+          <ul>
+            <li>No TF2 props—use the prop pack.</li>
+            <li>Use parts for detailing, not props.</li>
+            <li>Master triangle terrain—study <code>3cp_yellowvalley</code>.</li>
+            <li>Art-style: 2000–2010, nature reserves, mines, factories.</li>
+          </ul>
+        </li>
+        <li>Questions? Ping <strong>@FWEEEEEE</strong> on the TC2 Discord!</li>
+      </ul>
+    </section>
+
+    <!-- Discord CTA -->
+    <section class="panel">
+      <h2>Join the Typical Colors 2 Discord</h2>
+      <a href="https://discord.gg/b5RRucMeYv" class="button" target="_blank">Join Discord</a>
+    </section>
+
+    <!-- Map Formatting Link -->
+    <section class="panel">
+      <h2>Want the Map Formatting Guide?</h2>
+      <a href="map-formatting.html" class="button">View Map Formatting</a>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Typical Colors 2
+  </footer>
+
 </body>
 </html>
